@@ -1,0 +1,47 @@
+body{
+	margin: 0;
+	font-family: 'Lora', serif;      /*устанавливает семейства шрифта*/
+	
+	font-size: 24px;       /*размер шрифта*/
+	line-height: 1.6;
+	color: #333;         /*цвет шрифта*/
+}
+
+*,
+* before,
+* after{
+	box-sizing: border-box;
+}
+
+/* У всех загаловках марджинг 0 */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+/* Контейнер */
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;              /*выравнивание поцентру*/
+}
+
+.about{
+	background-color:#EEEAE7;
+    margin: 5px 0px;              
+}
+
+.d_row{
+	margin: 150px auto 0;	
+}
+
+.col{
+	padding: 15px 0px;
+}
+
+
+/* расстояние картинки от текста */
+.rounded{
+	padding: 0px 70px;
+}
+
+

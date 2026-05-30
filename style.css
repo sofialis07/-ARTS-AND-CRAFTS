@@ -1,0 +1,620 @@
+body{
+	margin: 0;
+	font-family: 'Lora', serif;      /*устанавливает семейства шрифта*/
+	
+	font-size: 24px;       /*размер шрифта*/
+	line-height: 1.6;
+	color: #333;         /*цвет шрифта*/
+}
+
+*,
+* before,
+* after{
+	box-sizing: border-box;
+}
+
+.page {
+	overflow: hidden;     /*при адаптации не должен вылезать границы и тд*/
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;       /*сколько видно, столько и будет высота*/
+}
+
+/* У всех загаловках марджинг 0 */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+/* Контейнер */
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;              /*выравнивание поцентру*/
+}
+
+/* Блог */
+.blog{
+	display: flex;             /* ИСПОЛЬЗУЕТСЯ ФЛЕКСБОКС ДЛЯ РАСПРЕДЕЛЕНИЕ ТЕКСТА ПО ОСИ И ПО ЦЕНТРУ*/
+	flex-direction: column;  
+	justify-content: center;
+	
+	width: 100%;
+	height: 100vh;
+	
+	background: url("img/главный фон.jpg") center no-repeat;
+	-webkit-background-size: cover;     /*картина занимает весь экран*/
+}
+
+.blog__inner{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	
+	text-align: center;      /*все выравнивается по центру*/
+}
+
+/* Загаловок */
+.blog__title{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 105px;       /*размер текста*/
+	font-weight: 700;     /*текст жирный*/
+	text-transform: uppercase;   /*большие тексты*/
+	
+	line-height: 1;
+}
+
+.blog__title:after{
+	margin: 60px auto;
+}
+
+/* Шапка */
+.header{
+	width: 100%;
+	padding: 22px;      /* текст расположен по центру подложки*/
+
+	
+	background-color: rgba(211, 173, 162, 0.6);   /* прозрачная подложка для шапки*/
+	text-align: center;      /*все выравнивается по центру*/
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+/* Лого */
+
+.nav_logo{
+	font-size: 32px;    /* размер шрифтра */
+	font-weight: 700;  /* жирный */
+	color: #000000;       /* цвет */
+}
+
+.nav__link_logo{
+	color: #000000;       /* цвет */
+    text-decoration: none;  /* убирает подчеркивание */
+	transition: color 0.1s linear;    /* плавный переход цвета */
+}
+
+/* цвет при наводе */
+.nav__link_logo:hover {
+	color: #000000; 
+}
+
+
+
+/* ИСПОЛЬЗУЕТСЯ ФЛЕКСБОКС ДЛЯ РАСПРЕДЕЛЕНИЕ ЛОГОТИПА И НАВИГАЦИИ */
+.header_1{
+	display: flex;
+	justify-content: space-between;       /* занимают крайние позиции влево-вправо */
+	align-items: center;                  /* выравнение по центру */
+}
+
+
+/* Навигация */
+.nav{
+	font-size: 24px;    /* размер шрифтра */
+}
+
+.nav__link{
+    display: inline-block;
+	vertical-align: top;
+	margin: 0 23px;           /* растояние между строк навигации */
+	position: relative;
+
+	color: #464545;
+	text-decoration: none;  /* убирает подчеркивание */
+	
+	transition: color 0.1s linear;    /* плавный переход цвета */
+}
+
+
+
+/* псевдо элемент для декора */
+/* создается полоска */
+.nav__link:after {
+	content:"";
+	display: block;
+	width: 100%;
+	height: 3px;
+	
+	background-color: #A37A63;   /* цвет */
+	opacity: 0;          /* полоски не видно */
+	
+	position: absolute;        /* позиция наследуется от родителя */
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	
+	transition: opacity 0.1s linear;   /* плавное появление */
+}
+
+/* цвет при наводе */
+.nav__link:hover {
+	color: #A37A63;
+}
+
+/* псевдо элемент для декора */
+.nav__link:hover:after {     /* полоска появляется */
+	opacity: 1;
+}
+
+/* Кнопка */
+.button{
+	display: inline-block;
+	vertical-align: top;
+	margin: 60px auto 0;          /* отступ от текста */
+	padding: 5px 18px;
+	
+	
+	border: 3px solid #000000;    /* граница кнопки толшина и цвет */
+	border-radius: 10px;
+	
+	
+	font-size: 24px;
+	color: #000000;    /* цвет текста */
+	text-transform: uppercase;
+	text-decoration: none;
+	
+	transition: background 0.1s linear, color 0.1s linear;   /* плавность*/
+}
+
+/* меняется цвет при наведении */
+.button:hover{
+	background-color: #D2AF9C;       /* цвет кнопки */
+	border: 3px solid #D2AF9C;    /* граница кнопки толшина и цвет */
+	color: #fff;        /* цвет текста */
+}
+
+
+
+.section_fon{      /*Серыйфон для блока - подложка*/
+	width: 100%;
+	height: 450px;
+	padding: 30px;
+	background-color: #EEEAE7;
+	margin: 25px auto;
+	align-self: center; 
+
+}
+
+/* Продолжение главной стр Новый блог */
+.blog__section {            
+   padding: 109px 0;    /* отступ между блогами */
+}
+
+.section__name {
+	text-align: left;
+}
+                    /* ИСПОЛЬЗУЕТСЯ ГРИД */
+.section__1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr ;      /* размер блока */
+	grid-gap: 1em;                          /* отступ */
+	grid-auto-rows: minmax(50px, auto);      /* высота для всех блоков */
+}
+
+/* загаловок 2 блока */
+.section_t{
+   font-size: 48px;
+   color: #333;
+   font-weight: 700; 
+   
+   padding: 30px 0px;
+}
+                    /* ИСПОЛЬЗУЕТСЯ ГРИД */
+.section__title {  
+	display: grid; 
+    align-self: center; 
+	grid-column: 1/3;  /* ГРИД для надписи*/
+	margin: 0;
+}
+
+.section__text {
+	width: 100%;
+	max-width: 600px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 23px;
+	color: #333;
+	line-height: 1.1;     /* растоение между строками */
+
+}
+
+.section__img {      /* ГРИД для картины*/
+    grid-column: 2;
+    grid-row: 1 / 3;
+	
+	position: relative;
+    left: 0vw;
+    top: -60px;
+}
+
+
+
+/* 3  Блог */
+.art__block{
+	padding: 69px 0;  /* отступ между блогами */
+}
+
+
+.card__name {
+	font-size: 48px;
+	color: #333;
+	margin: 63px 0px;
+}
+
+                    /* ИСПОЛЬЗУЕТСЯ ГРИД */
+.grid-card {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;      /* размер блока */
+	grid-column-gap: 0.5em;                      /* отступ вертикально */
+	grid-row-gap: 4em;                           /* отступ горизонтально */
+	
+}
+
+.card {
+	margin-top: 10px;
+	background-color: #EEEAE7;
+	width: 278px;
+	border-radius: 25px;
+}
+
+.card__title{
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24px;
+	padding: 5px 23px;
+	text-align: center;
+	line-height: 1.1;
+}
+
+.card-text{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	padding: 20px 23px;
+	text-align: center;
+	line-height: 1.1;
+}
+
+
+
+/* 4  блог */
+.contact{
+	padding: 69px 0;   /* отступ между блогами */
+}
+
+                     /* ИСПОЛЬЗУЕТСЯ ГРИД */
+.grid-contact{
+	display: grid;
+	grid-template-columns: 60% 30%;      /* размер блока */
+	grid-gap: 1em; 
+}
+
+.contact__img {
+	grid-column: 2;
+    grid-row: 1/ 3;
+	
+	padding:  0px;
+	margin: 0px;
+	border-radius: 25px;
+}
+
+.contact__text{
+	padding:  0px;
+}
+
+.contact__tel{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24px;
+}
+
+.contact__nom{
+	width: 100%;
+	max-width: 309px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24px;
+}
+
+.nomber{
+	color: #333;
+	text-decoration: none;
+}
+
+.icon-img {
+	padding-left: 15px ;
+}
+
+
+               /* ИСПОЛЬЗУЕТСЯ ФЛЕКСБОКС ДЛЯ ПОДВАЛА*/
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 22px;
+	background-color: #D3ADA2;
+}
+
+.text__footer{
+	font-size: 20px;
+	color: #464545;
+}
+
+
+
+
+
+/* ВТОРАЯ СТР - ОТЗЫВЫ */
+                           /* ИСПОЛЬЗУЕТСЯ FLEXBOX */
+
+.F_text{                  /* Загаловок */
+   font-size: 48px;
+   color: #333;
+   font-weight: 700; 
+   
+   padding: 30px 30px;
+}
+
+.flex{
+	display: flex;  
+	flex-wrap: wrap;
+	justify-content: center;
+	
+	padding: 109px 0px;
+}
+
+ .flex-container {
+   display: flex;  
+   flex-direction: column;
+}
+
+ .inline-flex-container {
+   display: flex;  
+   flex-direction: column;
+   
+   padding: 135px 50px;
+}
+
+ .flex_info{
+	display: flex;  
+	flex-direction: row;
+  }
+  
+ .flex-item {
+	display: flex; 
+		
+	padding: 40px 30px;
+ }
+  
+  .t{
+   display: flex;  
+   flex-direction: column;
+  }
+  
+  .flex-text_name{
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 24px;
+ 
+   width: 100%;
+   max-width: 230px;
+   padding: 37px 20px;
+   line-height: 1.1;
+  }
+ 
+  .flex-text{
+   display: flex;  
+   justify-content: center;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 20px;
+ 
+   width: 100%;
+   max-width: 230px;
+   padding: 0px 20px;
+   line-height: 1.1;
+ }
+
+
+
+
+
+/* ТРЕТЬЯ СТР - ПОРТФОЛИО */
+                         /* ИСПОЛЬЗУЕТСЯ GRID */
+
+.GRID{
+	padding: 120px 0px;
+}
+
+.G_text{                  /* Загаловок */
+   font-size: 48px;
+   color: #333;
+   font-weight: 700; 
+   
+   padding: 30px 0px;
+}
+
+.grid-card-1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;      /* размер блока */
+	grid-column-gap: 1em;                      /* отступ вертикально */
+	grid-row-gap: 0.1em; 
+}
+.grid{
+	display: grid; 
+		
+	padding: 40px 0px;
+ }
+	
+
+.grid_text{
+   width: 100%;
+   max-width: 370px;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 23px;
+}
+
+.more{
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+	color: #AE6840;
+	text-decoration: none;
+	 padding:0px 25px;
+}
+
+
+
+
+/* МОДАЛЬНОЕ ОКНО*/
+.modal {
+    display: none;
+	background-color: rgba(180, 180, 180, 0.6); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+.modal_vis {
+    display: block;
+}
+
+.body_block {
+    overflow: hidden;
+    margin-right: 17px;
+}
+
+#close_modal {                                   /* значек закрытия*/
+    color: #3c3c3c;
+	font-size: 23px;
+    font-size: 90px;
+    border-radius: 50%;
+    border: 4px solid #3c3c3c;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    transform: rotate(45deg);
+    transition: all 0.6s;
+    box-sizing: content-box;
+}
+
+#close_modal:hover {                               /* псевдокласс: значек закрытия*/
+    color: #FFF;
+    transform: rotate(135deg);
+}
+
+.modal_txt {                                       /*блок и текст*/
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+    background: #FFF;
+    padding: 90px;
+    margin: 100px auto;
+    max-width: 600px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 25px;
+}
+
+.modal_i{
+	position:relative;
+	padding: 80px;
+}
+
+.modal_img {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.open_modal{                  /*кнопка ОТПРАВИТЬ*/
+	display: inline-block;
+	vertical-align: top;
+	margin: 50px auto 0;          /* отступ от текста */
+	padding: 5px 18px;
+	
+	
+	border: 3px solid #000000;    /* граница кнопки толшина и цвет */
+	border-radius: 10px;
+	
+	
+	font-size: 24px;
+	color: #000000;    /* цвет текста */
+	text-transform: uppercase;
+	text-decoration: none;
+	
+	transition: background 0.1s linear, color 0.1s linear;   /* плавность*/
+}
+
+/* меняется цвет при наведении */
+.open_modal:hover{
+	background-color: #D2AF9C;       /* цвет кнопки */
+	border: 3px solid #D2AF9C;    /* граница кнопки толшина и цвет */
+	color: #fff;        /* цвет текста */
+}
+
+
+
+/*pagination СТР*/
+.page-link{
+     color: black!important;
+	 margin: 40px 0px;
+	 
+}
+
+/*кнопка НАЗАД - Портфолио подробное*/
+.button_Back{
+	display: flex;
+    flex-direction: row;
+	margin: 20px auto 0;          /* отступ от текста */
+	padding: 5px 18px;
+	
+	
+	border: 3px solid #000000;    /* граница кнопки толшина и цвет */
+	border-radius: 10px;
+	
+	
+	font-size: 24px;
+	color: #000000;    /* цвет текста */
+	text-transform: uppercase;
+	text-decoration: none;
+	
+	transition: background 0.1s linear, color 0.1s linear;   /* плавность*/
+}
+
+.button{
+	
+}
+
+/* меняется цвет при наведении */
+.button:hover{
+	background-color: #D2AF9C;       /* цвет кнопки */
+	border: 3px solid #D2AF9C;    /* граница кнопки толшина и цвет */
+	color: #fff;        /* цвет текста */
+}
+
